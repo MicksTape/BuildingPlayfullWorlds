@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000010708501322}
-  - component: {fileID: 114000013230019050}
+  - 4: {fileID: 4000010708501322}
+  - 114: {fileID: 114000013230019050}
   m_Layer: 4
   m_Name: LPWaterHighQuality
   m_TagString: Untagged
@@ -34,12 +34,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010242649756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 68.80452, y: -7.7, z: -108.24421}
-  m_LocalScale: {x: 0.91674674, y: 1, z: 1.8958645}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000013230019050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,7 +60,7 @@ MonoBehaviour:
   sizeX: 60
   sizeZ: 60
   noise: 0.6
-  enableReflection: 0
+  enableReflection: 1
   enableRefraction: 0
   reflection:
     disablePixelLights: 1
@@ -72,7 +72,7 @@ MonoBehaviour:
     refractLayers:
       serializedVersion: 2
       m_Bits: 4294967295
-  receiveShadows: 1
+  receiveShadows: 0
   waveScale: -1337
   gridTypeLite: 0
   displayProgress: 0
