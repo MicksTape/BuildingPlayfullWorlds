@@ -16,9 +16,16 @@ public class Blade : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider col)
     {
-        AS.PlayOneShot(BladeSound);
+        switch (col.gameObject.tag)
+        {
+            case "Enemy":
+                AS.PlayOneShot(BladeSound);
+
+                print("EnemyHit");
+                break;
+        }
     }
+
 }

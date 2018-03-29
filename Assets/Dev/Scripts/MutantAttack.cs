@@ -35,7 +35,7 @@ public class MutantAttack : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
         switch (col.gameObject.tag)
         {

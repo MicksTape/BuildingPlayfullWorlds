@@ -10,9 +10,9 @@ public class fpsAttack : MonoBehaviour {
 	public Transform respawnPosition;
     public GameObject VR;
 
-	void OnCollisionEnter(Collision other)
+	void OnTriggerEnter(Collider other)
 	{
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "LeftHand")
         {
             print("Mutant hit");
             currentHealth -= 1;
