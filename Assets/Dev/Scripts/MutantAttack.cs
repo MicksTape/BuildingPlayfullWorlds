@@ -12,7 +12,15 @@ public class MutantAttack : MonoBehaviour
     public CapsuleCollider capCol;
     Vector3 spawnPoint;
     //public GameObject healthBar;
-    public int currentHealth = 3;
+    public int currentHealth;
+    public int maxHealth = 3;
+    public int damageTaken = 1;
+    private bool inDead = false;
+
+    void Awake()
+    {
+        currentHealth = maxHealth;
+    }
 
 
 
@@ -25,15 +33,6 @@ public class MutantAttack : MonoBehaviour
         //subtract damage amount when Damage function is called
         currentHealth -= damageAmount;
 
-        //Check if health has fallen below zero
-        if (currentHealth <= 0)
-        {
-            //if health has fallen below zero, deactivate it 
-            StartCoroutine(dead());
-
-
-        }
-
     }
 
     private void OnCollisionEnter(Collision col)
@@ -41,8 +40,9 @@ public class MutantAttack : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "Blade":
-                currentHealth = currentHealth - 1;
-                Debug.Log("Bladehit");
+                currentHealth = currentHealth - damageTaken;
+                
+                print("Bladehit");
                 break;
         }
     }
@@ -59,10 +59,7 @@ public class MutantAttack : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
-
-        if (currentHealth <= 0) return;
+    {     
 
         Vector3 direction = player.position - this.transform.position;
         float angle = Vector3.Angle(direction, this.transform.forward);
@@ -104,12 +101,25 @@ public class MutantAttack : MonoBehaviour
 
         }
 
+        //Check if health has fallen below zero
+        if (currentHealth <= 0)
+        {
+            //if health has fallen below zero, deactivate it 
+            if (!inDead)
+            {
+                StartCoroutine(dead());
+            }
+
+
+        }
+
     }
 
 
     IEnumerator dead()
     {
-        //navComponent.SetDestination (this.transform.position);
+        inDead = true;
+         //navComponent.SetDestination (this.transform.position);
         capCol.enabled = false;
         anim.SetBool("isDeath", true);
         anim.SetBool("isIdle", false);
@@ -117,20 +127,21 @@ public class MutantAttack : MonoBehaviour
         anim.SetBool("isCrying", false);
         anim.SetBool("isAttacking", false);
         rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2.999f);
         Destroy(gameObject);
-        //healthbar.value = 100;
-        //transform.position = spawnPoint;
-        //capCol.enabled = true;
-        //rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-        //rigidbody.constraints = RigidbodyConstraints.None;
-        //anim.SetBool("isDeath", false);
-        //anim.SetBool("isIdle", true);
-        //anim.SetBool ("isRunning", false);
-        //anim.SetBool ("isCrying", false);
-        //anim.SetBool ("isAttacking", false);
-        StopCoroutine(dead());
-        GameObject.FindGameObjectsWithTag("Enemy");
+            //healthbar.value = 100;
+            //transform.position = spawnPoint;
+            //capCol.enabled = true;
+            //rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+            //rigidbody.constraints = RigidbodyConstraints.None;
+            //anim.SetBool("isDeath", false);
+            //anim.SetBool("isIdle", true);
+            //anim.SetBool ("isRunning", false);
+            //anim.SetBool ("isCrying", false);
+            //anim.SetBool ("isAttacking", false);
+         StopCoroutine(dead());
+         GameObject.FindGameObjectsWithTag("Enemy");
+  
     }
 
 }

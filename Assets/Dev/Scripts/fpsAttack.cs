@@ -8,20 +8,23 @@ public class fpsAttack : MonoBehaviour {
 	public int currentHealth = 10;
 	public Slider healthbar;
 	public Transform respawnPosition;
+    public GameObject VR;
 
-	void OnTriggerEnter(Collider other)
+	void OnCollisionEnter(Collision other)
 	{
-		Debug.Log ("Mutant hit");
-		currentHealth -= 1;
-		healthbar.value -= 1;
+        if (other.gameObject.tag == "Enemy")
+        {
+            print("Mutant hit");
+            currentHealth -= 1;
+            healthbar.value -= 1;
 
-		if (currentHealth <= 0) 
-		{
-			transform.position = respawnPosition.position;
-			healthbar.value = 10;
-			currentHealth = 10;
-			//Destroy(gameObject);
-		}
+            if (currentHealth <= 0)
+            {
+                VR.transform.position = respawnPosition.position;
+                healthbar.value = 10;
+                currentHealth = 10;
+            }
+        }
 	}
 
 		
