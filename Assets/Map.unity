@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.8897059, g: 0.84260374, b: 0.7719507, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
@@ -2096,7 +2096,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 1346215954}
   m_GameObject: {fileID: 39829164}
-  m_LocalRotation: {x: -0.31545216, y: 0.6227037, z: 0.63911784, w: 0.322891}
+  m_LocalRotation: {x: -0.31545213, y: 0.6227036, z: 0.6391178, w: 0.32289097}
   m_LocalPosition: {x: -3.1, y: -4.393, z: -4.218}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
@@ -112235,18 +112235,18 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1985132832}
-  m_LocalRotation: {x: -0.23257546, y: -0, z: -0, w: 0.97257835}
-  m_LocalPosition: {x: 0, y: 0, z: 1.522}
-  m_LocalScale: {x: 0.0029073684, y: 0.00034827588, z: 0.110713}
+  m_LocalRotation: {x: -0.21386015, y: -0, z: -0, w: 0.9768643}
+  m_LocalPosition: {x: 0, y: 0, z: 0.96}
+  m_LocalScale: {x: 0.0024531367, y: 0.00030179508, z: 0.110713}
   m_Children:
   - {fileID: 1594387836}
   - {fileID: 1061683321}
   m_Father: {fileID: 0}
   m_RootOrder: 54
-  m_LocalEulerAnglesHint: {x: -26.897001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -24.697, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.044, y: 1.0258613}
+  m_AnchoredPosition: {x: 0.044, y: 0.605}
   m_SizeDelta: {x: 313, y: 638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985132837
